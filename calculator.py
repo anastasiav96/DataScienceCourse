@@ -16,7 +16,7 @@ if __name__ == '__main__':
     while True:
         operation = input('Input your operation (+, -, *, /) or input "q" for exit:   ')
         if operation != 'q':
-            x, y = int(input('Input first number:   ')), int(input('Input second number:   '))
+            x, y = float(input('Input first number:   ')), float(input('Input second number:   '))
             print(calculator(x, y, operation))
         else:
             print('Goodbye!')
