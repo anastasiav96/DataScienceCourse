@@ -15,7 +15,7 @@ def lower_str(string):
 
 
 if __name__ == '__main__':
-    file_w = open('output.txt', 'a')
+    file_w = open('output.txt', 'w')
     with open('data.txt', 'r') as f:
         for line in f:
             file_w.write(lower_str(replace_double_spaces(replace_commas(replace_points(line)))))
