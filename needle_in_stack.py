@@ -26,7 +26,8 @@ def tuple_search(s, n):
 @measure_time
 def dict_search(s, n):
     for i in n:
-        s.get(i)
+        if i in s.keys():
+            s.get(i)
 
 
 def get_random_stack_needles(stack_size):
