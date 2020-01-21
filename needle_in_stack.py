@@ -34,7 +34,6 @@ def get_random_stack_needles(stack_size):
     stack_list = [random.random() for i in range(stack_size)]
     needles_list = [random.choice(stack_list) for j in range(stack_size // 2)]
     needles_list.extend([random.random() for k in range(stack_size // 2)])
-    random.shuffle(needles_list)
 
     return stack_list, needles_list
 
