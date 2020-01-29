@@ -102,4 +102,4 @@ if __name__ == '__main__':
 
         print('Car name: ', car)
         print('Boxes in {} : '.format(car), boxes_in_car)
-        print('Boxes not in {} : '.format(car), boxes_not_in_car)
+        print('Boxes not in cars: ', boxes_not_in_car)
