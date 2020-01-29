@@ -83,10 +83,10 @@ if __name__ == '__main__':
 
     for car in cars:
         for box in boxes:
-            if (cars[car].height - boxes[box].height > 0) and (cars[car].width - boxes[box].width > 0) and (
-                    cars[car].length - boxes[box].length > 0) and (
-                    boxes[box].box_mass + cars[car].total_mass_boxes < cars[car].max_mass) and (
-                    cars[car].volume - boxes[box].volume > 0):
+            if (cars[car].height - boxes[box].height >= 0) and (cars[car].width - boxes[box].width >= 0) and (
+                    cars[car].length - boxes[box].length >= 0) and (
+                    boxes[box].box_mass + cars[car].total_mass_boxes <= cars[car].max_mass) and (
+                    cars[car].volume - boxes[box].volume >= 0):
                 cars[car].add_in_car(box)
                 cars[car].params_change(boxes[box].height, boxes[box].width, boxes[box].length)
                 cars[car].add_mass(boxes[box].box_mass)
