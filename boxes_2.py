@@ -61,4 +61,3 @@ if __name__ == '__main__':
         carriage.add(box)
 
     print(carriage)
-    print(carriage.__dict__)
