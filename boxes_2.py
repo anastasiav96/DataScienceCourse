@@ -55,7 +55,7 @@ if __name__ == '__main__':
     random.seed(0)
 
     boxes = [Box.create(f'Box_{i}') for i in range(1, 11)]
-    carriage = Carriage.create('Box_1')
+    carriage = Carriage.create('Carriage_1')
 
     for box in boxes:
         carriage.add(box)
