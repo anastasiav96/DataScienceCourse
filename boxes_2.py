@@ -48,7 +48,7 @@ class Carriage:
                        self.value_overall + cargo.v <= self.value_available)
 
     def __str__(self):
-        return f'Carriage: {self._name}\nBox in carriage: {self.cargo_list}\nCargo not in carriage: {self.cargo_not_in_carriage}'
+        return f'Carriage: {self._name}\nBox in carriage: {self.cargo_list}\nBox not in carriage: {self.cargo_not_in_carriage}'
 
 
 if __name__ == '__main__':
