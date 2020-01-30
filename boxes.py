@@ -41,11 +41,6 @@ class Car:
     def add_mass(self, box_mass):
         self.total_mass_boxes += box_mass
 
-    def params_change(self, box_height, box_width, box_length):
-        self.height -= box_height
-        self.width -= box_width
-        self.length -= box_length
-
     def volume_change(self, box_volume):
         self.volume -= box_volume
 
@@ -88,7 +83,6 @@ if __name__ == '__main__':
                     boxes[box].box_mass + cars[car].total_mass_boxes <= cars[car].max_mass) and (
                     cars[car].volume - boxes[box].volume >= 0):
                 cars[car].add_in_car(box)
-                cars[car].params_change(boxes[box].height, boxes[box].width, boxes[box].length)
                 cars[car].add_mass(boxes[box].box_mass)
                 cars[car].volume_change(boxes[box].volume)
 
