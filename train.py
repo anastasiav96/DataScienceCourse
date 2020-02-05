@@ -41,7 +41,7 @@ class Carriage:
         return self._mass_overall
 
     @property
-    def value_overall(self):
+    def volume_overall(self):
         return self._volume_overall
 
     @property
