@@ -266,8 +266,5 @@ if __name__ == '__main__':
 
     generator()
 
-    print(train.carriage_list[0].cargo_list)
-    print(train.carriage_list[1].cargo_list)
-    print(train.carriage_list[2].cargo_list)
-    print(train.carriage_list[3].cargo_list)
-    print(train.carriage_list[4].cargo_list)
+    for vagon in train:
+        print(vagon.cargo_list)
