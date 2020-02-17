@@ -41,7 +41,7 @@ class Carriage:
         return self._mass_overall
 
     @property
-    def volume_overall(self):
+    def value_overall(self):
         return self._volume_overall
 
     @property
@@ -147,9 +147,25 @@ class Train:
             self._y += y
         return self._x, self._y
 
+    def __iter__(self):
+        return TrainIterator(self)
+
     def __str__(self):
         return f'Number of train: {self._number}, carriages in train: {self._carriage_list}, door: {self._open}, ' \
                f'ready: {self._ready}, coordinates: {self._x, self._y}'
+
+
+class TrainIterator:
+    def __init__(self, train):
+        self._train = train
+        self._index = 0
+
+    def __next__(self):
+        if self._index < len(self._train._carriage_list):
+            result = self._train._carriage_list[self._index]
+            self._index += 1
+            return result
+        raise StopIteration
 
 
 class Cargo:
@@ -220,9 +236,23 @@ class TableFactory:
                      m=random.uniform(1, 7))
 
 
+def create(name):
+    if name == 'Box':
+        return BoxFactory.create_boxes()
+    elif name == 'Table':
+        return TableFactory.create_tables()
+    elif name == 'Fridge':
+        return FridgeFactory.create_fridges()
+
+
 def generator():
-    while True:
-        yield random.choice([TableFactory.create_tables(), BoxFactory.create_boxes(), FridgeFactory.create_fridges()])
+    for vagon in train:
+        while True:
+            cargo = create(random.choice(['Box', 'Table', 'Fridge']))
+            if vagon.add(cargo):
+                continue
+            del cargo
+            break
 
 
 if __name__ == '__main__':
@@ -234,23 +264,10 @@ if __name__ == '__main__':
     for carriage in carriages:
         train.add_carriage(carriage)
 
-    cargo_generator = generator()
+    generator()
 
-    # for cargo in cargo_generator:
-    #     if train.carriage_list[0].add(cargo):
-    #         continue
-    #     else:
-    #         if train.carriage_list[1].add(cargo):
-    #             continue
-    #         else:
-    #             if train.carriage_list[2].add(cargo):
-    #                 continue
-    #             else:
-    #                 if train.carriage_list[3].add(cargo):
-    #                     continue
-    #                 else:
-    #                     if train.carriage_list[4].add(cargo):
-    #                         continue
-    #                     else:
-    #                         del cargo
-    #                         break
+    print(train.carriage_list[0].cargo_list)
+    print(train.carriage_list[1].cargo_list)
+    print(train.carriage_list[2].cargo_list)
+    print(train.carriage_list[3].cargo_list)
+    print(train.carriage_list[4].cargo_list)
