@@ -29,9 +29,5 @@ class Genres(DataBase):
         self.query_database(sql_statement)
         self.commit_query()
 
-    def __del__(self):
-        self.conn.close()
-        self.cursor.close()
-
     def __str__(self):
         return f'Genre: {self.genre}'
