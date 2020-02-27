@@ -10,7 +10,7 @@ class Author(DataBase):
     def add_author(self):
         sql_statement = """INSERT INTO authors (name, surname)
                            VALUES (%s, %s);"""
-        self.query_database(sql_statement, (self.name, self.surname,))
+        self.query_database(sql_statement, (self.name, self.surname))
         self.commit_query()
 
     def update_author(self, id, new_name, new_surname):
